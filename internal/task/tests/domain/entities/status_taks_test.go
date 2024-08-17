@@ -156,3 +156,95 @@ func TestStatusTask_DeactivateStatusTask(t *testing.T) {
 		require.False(t, *statusTask.IsActived)
 	})
 }
+
+func TestStatusTask_GetID(t *testing.T) {
+	t.Parallel()
+
+	t.Run("Test Get ID", func(t *testing.T) {
+		t.Parallel()
+
+		statusTask, _ := entities.NewStatusTask(
+			"Status Task 1",
+			nil,
+		)
+
+		require.NotEmpty(t, statusTask.GetID())
+	})
+}
+
+func TestStatusTask_GetName(t *testing.T) {
+	t.Parallel()
+
+	t.Run("Test Get Name", func(t *testing.T) {
+		t.Parallel()
+
+		statusTask, _ := entities.NewStatusTask(
+			"Status Task 1",
+			nil,
+		)
+
+		require.Equal(t, "Status Task 1", statusTask.GetName())
+	})
+}
+
+func TestStatusTask_GetDescription(t *testing.T) {
+	t.Parallel()
+
+	t.Run("Test Get Description", func(t *testing.T) {
+		t.Parallel()
+
+		description := "Description of status task 1"
+		statusTask, _ := entities.NewStatusTask(
+			"Status Task 1",
+			&description,
+		)
+
+		require.Equal(t, description, *statusTask.GetDescription())
+	})
+}
+
+func TestStatusTask_GetIsActived(t *testing.T) {
+	t.Parallel()
+
+	t.Run("Test Get Is Actived", func(t *testing.T) {
+		t.Parallel()
+
+		statusTask, _ := entities.NewStatusTask(
+			"Status Task 1",
+			nil,
+		)
+
+		require.NotNil(t, statusTask.GetIsActived())
+		require.True(t, *statusTask.GetIsActived())
+	})
+}
+
+func TestStatusTask_GetCreatedAt(t *testing.T) {
+	t.Parallel()
+
+	t.Run("Test Get Created At", func(t *testing.T) {
+		t.Parallel()
+
+		statusTask, _ := entities.NewStatusTask(
+			"Status Task 1",
+			nil,
+		)
+
+		require.NotEmpty(t, statusTask.GetCreatedAt())
+	})
+}
+
+func TestStatusTask_GetUpdatedAt(t *testing.T) {
+	t.Parallel()
+
+	t.Run("Test Get Updated At", func(t *testing.T) {
+		t.Parallel()
+
+		statusTask, _ := entities.NewStatusTask(
+			"Status Task 1",
+			nil,
+		)
+
+		require.NotEmpty(t, statusTask.GetUpdatedAt())
+	})
+}

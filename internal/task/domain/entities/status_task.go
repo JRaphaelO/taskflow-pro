@@ -95,8 +95,28 @@ func (st *StatusTask) DeactivateStatusTask() error {
 	return nil
 }
 
+func (st *StatusTask) GetID() string {
+	return st.ID
+}
+
+func (st *StatusTask) GetName() string {
+	return st.Name
+}
+
 func (st *StatusTask) GetDescription() *string {
 	return st.Description
+}
+
+func (st *StatusTask) GetIsActived() *bool {
+	return st.IsActived
+}
+
+func (st *StatusTask) GetCreatedAt() time.Time {
+	return st.CreatedAt
+}
+
+func (st *StatusTask) GetUpdatedAt() time.Time {
+	return st.UpdatedAt
 }
 
 func (st *StatusTask) validate() error {
