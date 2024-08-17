@@ -83,6 +83,18 @@ func (st *StatusTask) ActivateStatusTask() error {
 	return nil
 }
 
+func (st *StatusTask) DeactivateStatusTask() error {
+	statusActive := false
+	st.IsActived = &statusActive
+	st.UpdatedAt = time.Now()
+
+	if err := st.validate(); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (st *StatusTask) GetDescription() *string {
 	return st.Description
 }

@@ -137,3 +137,22 @@ func TestStatusTask_ActivateStatusTask(t *testing.T) {
 		require.True(t, *statusTask.IsActived)
 	})
 }
+
+func TestStatusTask_DeactivateStatusTask(t *testing.T) {
+	t.Parallel()
+
+	t.Run("Test Deactivate Status Task", func(t *testing.T) {
+		t.Parallel()
+
+		statusTask, _ := entities.NewStatusTask(
+			"Status Task 1",
+			nil,
+		)
+
+		err := statusTask.DeactivateStatusTask()
+
+		require.Nil(t, err)
+		require.NotNil(t, statusTask.IsActived)
+		require.False(t, *statusTask.IsActived)
+	})
+}
