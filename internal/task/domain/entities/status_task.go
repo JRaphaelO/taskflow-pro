@@ -55,6 +55,22 @@ func NewStatusTask(name string, description *string) (*StatusTask, error) {
 	return statusTask, nil
 }
 
+func (st *StatusTask) UpdateStatusTask(name string, description *string) error {
+	st.Name = name
+
+	if description != nil {
+		st.Description = description
+	}
+
+	st.UpdatedAt = time.Now()
+
+	if err := st.validate(); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (st *StatusTask) GetDescription() *string {
 	return st.Description
 }
